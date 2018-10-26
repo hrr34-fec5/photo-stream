@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 const picSchema = new mongoose.Schema({
   imageUrl: String,
   description: String,
-  listId: Number,
+  // listId: Number,
 });
 
 const PicStream = mongoose.model('PicStream', picSchema);
