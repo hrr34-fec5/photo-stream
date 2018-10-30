@@ -17,8 +17,12 @@ app.options('/*', function(req, res, next) {
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/', (req, res) => {
-  res.send('Placeholder text');
+app.get('/pictures', (req, res) => {
+  PicStream.findPics((pics) => {
+    console.log('pics in get request', pics)
+    res.json(pics);
+    res.end();
+  })
 });
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));

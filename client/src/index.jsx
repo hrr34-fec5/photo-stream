@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles/';
 import PhotoHolder from './components/PhotoHolder.jsx';
 import PhotoGallery from './components/PhotoGallery.jsx';
 import LeftButton from './components/LeftButton.jsx';
 import RightButton from './components/RightButton.jsx';
 import ReturnHome from './components/ReturnHome.jsx';
 
+const theme = createMuiTheme();
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -72,13 +74,16 @@ class App extends React.Component{
       }
       return (
         <div>
+          <PhotoHolder onClick={this.changeView.bind(this)}/>
+        </div>
+      )
+      /*
           <div onClick={this.changeView.bind(this)}><img src={homeDisplay[0].imageUrl}/></div>
           <div onClick={this.changeView.bind(this)}><img src={homeDisplay[1].imageUrl}/></div>
           <div onClick={this.changeView.bind(this)}><img src={homeDisplay[2].imageUrl}/></div>
           <div onClick={this.changeView.bind(this)}><img src={homeDisplay[3].imageUrl}/></div>
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[4].imageUrl}/></div>
-        </div>
-      )
+          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[4].imageUrl}/></div>      
+      */
       // return <h1 onClick={this.changeView.bind(this)}>You're on the home page</h1>
     } else {
       const galStyles = {
@@ -99,9 +104,9 @@ class App extends React.Component{
 
   render() {
     return(
-      <div className="gallery">  
+      <MuiThemeProvider theme={theme}>  
         {this.renderView()}
-      </div>
+      </MuiThemeProvider>
     );
   };
 };
