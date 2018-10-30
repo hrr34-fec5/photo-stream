@@ -4,7 +4,7 @@ const faker = require('faker');
 
 let generateRandomPics = () => {
    return {
-      imageUrl: 'https://loremflickr.com/320/240?random=3',
+      imageUrl: faker.image.imageUrl(800,800),
       description: faker.lorem.sentence(),
     };
 };
