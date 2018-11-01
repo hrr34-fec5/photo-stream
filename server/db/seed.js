@@ -5,14 +5,14 @@ const faker = require('faker');
 var images = [
     'http://dummyimage.com/700x700.png/cc0000/ffffff',
     'http://dummyimage.com/700x700.jpg/5fa2dd/ffffff',
-    'http://dummyimage.com/700x700.bmp/dddddd/000000',
-    'http://dummyimage.com/700x700.bmp/dddddd/000000',
-    'http://dummyimage.com/700x700.bmp/cc0000/ffffff',
-    'http://dummyimage.com/700x700.bmp/dddddd/000000',
-    'http://dummyimage.com/700x700.jpg/5fa2dd/ffffff',
+    'http://dummyimage.com/700x700.bmp/ef945b/000000',
+    'http://dummyimage.com/700x700.bmp/a5a26f/000000',
+    'http://dummyimage.com/700x700.bmp/99375c/ffffff',
+    'http://dummyimage.com/700x700.bmp/1ca2ce/000000',
+    'http://dummyimage.com/700x700.jpg/ac75d1/ffffff',
     'http://dummyimage.com/700x700.png/ff4444/ffffff',
-    'http://dummyimage.com/700x700.bmp/5fa2dd/ffffff',
-    'http://dummyimage.com/700x700.bmp/5fa2dd/ffffff'
+    'http://dummyimage.com/700x700.bmp/75bab6/ffffff',
+    'http://dummyimage.com/700x700.bmp/0f20db/ffffff'
 ];
 
 var random = function(){
