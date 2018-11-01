@@ -17,7 +17,8 @@ class App extends React.Component{
     this.state = {
       feed: [],
       currentIndex: 0,
-      view: 'home'
+      view: 'home',
+      hovered: false
     }
   }
 
@@ -78,6 +79,11 @@ class App extends React.Component{
       view: 'save'
     })
   }
+  setHovered(){
+    this.setState({
+      hovered: !this.state.hovered
+    });
+  }
 
   renderView(){
     if(this.state.view === 'home') {
@@ -120,7 +126,7 @@ class App extends React.Component{
         <div className="gallery" style={galStyles}>  
           <ReturnHome returnHome={this.returnHome.bind(this)}/>
           <LeftButton goToPrevSlide={this.goToPrevSlide.bind(this)}/>
-          <PhotoGallery feed={this.state.feed} currentIndex={this.state.currentIndex}/>
+          <PhotoGallery feed={this.state.feed} currentIndex={this.state.currentIndex} setHovered={this.setHovered.bind(this)} hovered={this.state.hovered}/>
           <RightButton goToNextSlide={this.goToNextSlide.bind(this)}/>
         </div>
       );
