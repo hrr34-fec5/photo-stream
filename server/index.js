@@ -24,5 +24,11 @@ app.get('/pictures', (req, res) => {
     res.end();
   })
 });
+app.get('/pictures:listingId', (req, res) => {
+  Picstream.findPicsById(pics => {
+    console.log('pics in find by id func', pics);
+    res.json(pics);
+  })
+})
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));

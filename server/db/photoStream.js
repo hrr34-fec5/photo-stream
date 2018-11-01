@@ -19,5 +19,16 @@ const findPics = (callback) => {
   });
 }
 
+const findPicsById = callback => {
+  PicStream.find('_id', (err, resp) => {
+    if (err) {
+      console.log('An error has occurred.');
+    } else {
+      callback(resp);
+    }
+  })
+}
+
 module.exports = PicStream;
 module.exports.findPics = findPics;
+module.exports.findPicsById = findPicsById;
