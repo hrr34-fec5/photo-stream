@@ -8,6 +8,7 @@ import LeftButton from './components/LeftButton.jsx';
 import RightButton from './components/RightButton.jsx';
 import ReturnHome from './components/ReturnHome.jsx';
 import SharePopup from './components/SharePopup.jsx';
+import SavePopup from './components/SavePopup.jsx';
 
 const theme = createMuiTheme();
 class App extends React.Component{
@@ -71,6 +72,12 @@ class App extends React.Component{
       view: 'share'
     })
   }
+  showSavePop(){
+    console.log('clicked savePop')
+    this.setState({
+      view: 'save'
+    })
+  }
 
   renderView(){
     if(this.state.view === 'home') {
@@ -80,7 +87,7 @@ class App extends React.Component{
       }
       return (
         <div>
-          <PhotoHolder onClick={this.changeView.bind(this)} feed={this.state.feed} view={this.state.view} showSharePop={this.showSharePop.bind(this)}/>
+          <PhotoHolder onClick={this.changeView.bind(this)} feed={this.state.feed} view={this.state.view} showSharePop={this.showSharePop.bind(this)} showSavePop={this.showSavePop.bind(this)}/>
         </div>
       )
       /*
@@ -94,13 +101,19 @@ class App extends React.Component{
     } else if (this.state.view === 'share') {
       return (
         <div>
-          <SharePopup onClick={this.changeView.bind(this)}/>
+          <SharePopup returnHome={this.returnHome.bind(this)}/>
+        </div>
+      )
+    } else if (this.state.view === 'save'){
+      return(
+        <div>
+          <SavePopup returnHome={this.returnHome.bind(this)}/>
         </div>
       )
     } else {
       const galStyles = {
         backgroundColor: 'rgb(42, 43, 45)',
-        height: '100%',
+        height: '100vh',
         width: '100%'
       }
       return(

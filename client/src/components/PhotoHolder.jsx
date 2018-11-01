@@ -7,11 +7,26 @@ const faker = require('faker');
 const styles = {
   cols: {
     maxHeight: '400px',
+    display: 'flex',
     flex: '50%',
     padding: '0',
     margin: '0',
     overflow: 'hidden',
-    border: '0'
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  cols1:{
+    maxHeight: '400px',
+    flex: '50%',
+    padding: '0',
+    margin: '0',
+    overflow: 'hidden',
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   row: {
     display: 'flex',
@@ -27,11 +42,15 @@ const styles = {
     margin: '0',
     padding: '0',
     float: 'left',
-    border: '0'
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   pics: {
     maxHeight: '100%',
     maxWidth: '100%',
+    display: 'flex',
     objectFit: 'scale-down'
   },
   btnDiv: {
@@ -65,6 +84,12 @@ const styles = {
     postion: 'absolute',
     bottom: '24px',
     left: '24px'
+  },
+  fbIcon: {
+    marginLeft: '5px',
+    marginRight: '15px',
+    display: 'inline-block',
+    fill: 'rgb(72, 72, 72)'
   }
 };
 
@@ -74,14 +99,24 @@ const PhotoHolder = (props) => {
   return (
     <div style={{left: '0', top: '0', right: '0'}}>
     <div style={styles.btnDiv}>
-      <button style={styles.shareBtn} onClick={props.showSharePop}>Share</button>
-      <button style={styles.saveBtn}>Save</button>
+      <button style={styles.shareBtn} onClick={props.showSharePop}>
+        <i className="far fa-paper-plane" style={styles.fbIcon}></i>
+        Share
+      </button>
+      <button style={styles.saveBtn} onClick={props.showSavePop}>
+        <i className="far fa-heart" style={styles.fbIcon}></i>
+        Save
+      </button>
     </div>
     <div className="row" style={styles.row}>
       <div style={styles.cols} className="col"><img style={{objecFit: "scale-down"}} src={first.imageUrl} onClick={props.onClick}/></div>
-      <div style={styles.cols} className="col">
+      <div style={styles.cols1} className="col">
         {newGrids.map(pic => {
-          return <div className="smallPic" style={styles.smallPics}><img styles={styles.pics} src={pic.imageUrl} onClick={props.onClick}/></div>
+          return (
+            <div className="smallPic" style={styles.smallPics}>
+              <img styles={styles.pics} src={pic.imageUrl} onClick={props.onClick}/>
+            </div>
+          )
         })}
       </div>
     </div>

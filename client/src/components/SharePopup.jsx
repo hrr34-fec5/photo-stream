@@ -20,7 +20,7 @@ const styles = {
     padding: '64px'
   },
   fourthDiv: {
-    backgroundColor: 'rbg(255, 255, 255)',
+    backgroundColor: 'rgb(255, 255, 255)',
     width: '100%',
     position: 'relative',
     maxWidth: '376px',
@@ -30,7 +30,7 @@ const styles = {
     boxSizing: 'border-box'
   },
   popDiv: {
-    backgroundColor: 'rbg(255, 255, 255)',
+    backgroundColor: 'rgb(255, 255, 255)',
     boxSizing: 'border-box',
     padding: '24px'
   },
@@ -78,6 +78,33 @@ const styles = {
     color: '#484848',
     fontWeight: 'normal'
   },
+  fbDiv: {
+    fontSize: '19px',
+    fontWeight: '300',
+    lineHeight: '1',
+  },
+  fbInner: {
+    paddingTop: '24px',
+    paddingBottom: '24px',
+    borderBottom: '1px solid rgb(235, 235, 235)',
+    borderTop: '1px solid rgb(235, 235, 235)'
+  },
+  fbSpan: {
+    fontWeight: '600',
+    margin: '0px',
+    wordWrap: 'break-word',
+    fontSize: '16px',
+    lineHeight: '22px',
+    letterSpacing: 'normal',
+    color: '#484848',
+    display: 'inline' 
+  },
+  fbIcon: {
+    height: '18px',
+    width: '18px',
+    display: 'block',
+    fill: 'rgb(72, 72, 72)'
+  }
 };
 
 const SharePopup = (props) => {
@@ -85,13 +112,13 @@ const SharePopup = (props) => {
     <div style={styles.outDiv}>
       <div style={styles.secondDiv}>
         <div style={styles.thirdDiv}>
-          <div style={styleMedia.fourthDiv}>
+          <div style={styles.fourthDiv}>
             <div style={styles.fifthDiv}>
               <section style={{display: 'block'}}>
                 <div style={styles.popDiv}>
                   <div style={{marginBottom: '24px'}}>
-                    <button style={styles.topBtn} onClick={props.onClick}>
-                    <i class="fas fa-times" style={styles.btnInner}></i>
+                    <button style={styles.topBtn} onClick={props.returnHome}>
+                      <i className="fas fa-times" style={styles.btnInner}></i>
                     </button>
                     <header>
                       <div style={styles.headerDiv}>
@@ -102,12 +129,90 @@ const SharePopup = (props) => {
                       </div>
                     </header>
                     <section style={{display: 'block'}}>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                            <div style={{display: 'table'}}>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                                <div style={{marginRight: '8px'}}>
+                                <i class="fab fa-facebook-f" style={styles.fbIcon}></i>
+                                </div>
+                              </div>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>Facebook</div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                          <div style={{display: 'table'}}>
+                          <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                            <div style={{marginRight: '8px'}}>
+                            <i class="fab fa-twitter" style={styles.fbIcon}></i>
+                            </div>
+                          </div>
+                          <div style={{display: 'table-cell', verticalAlign: 'middle'}}>Twitter</div>
+                        </div>
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                            <div style={{display: 'table'}}>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                                <div style={{marginRight: '8px'}}>
+                                  <i class="fas fa-envelope" style={styles.fbIcon}></i>
+                                </div>
+                              </div>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>Email</div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                            <div style={{display: 'table'}}>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                                <div style={{marginRight: '8px'}}>
+                                <i class="fab fa-facebook-messenger" style={styles.fbIcon}></i>
+                                </div>
+                              </div>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>Messenger</div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                            <div style={{display: 'table'}}>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                                <div style={{marginRight: '8px'}}>
+                                <i class="fas fa-copy" style={styles.fbIcon}></i>
+                                </div>
+                              </div>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>CopyLink</div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                      <div style={styles.fbDiv}>
+                        <div style={styles.fbInner}>
+                          <span style={styles.fbSpan}>
+                            <div style={{display: 'table'}}>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                                <div style={{marginRight: '8px'}}>
+                                <i class="fas fa-link" style={styles.fbIcon}></i>
+                                </div>
+                              </div>
+                              <div style={{display: 'table-cell', verticalAlign: 'middle'}}>Embed</div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </div>
