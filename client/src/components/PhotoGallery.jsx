@@ -61,7 +61,7 @@ const styles = {
   pictureHolder: {
     position: 'relative',
     height: '67px',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   underPics: {
     position: 'absolute',
@@ -109,18 +109,19 @@ export default class PhotoGallery extends React.Component {
                 <div style={styles.underTransition}>
                   <div style={styles.tableDiv}>
                     <div style={styles.textDiv}>
-                      <div style={{boxSizing: 'border-box'}}>{this.props.feed[this.props.currentIndex].description}</div>
+                      <div style={{boxSizing: 'border-box', fontFamily: 'Roboto, sans-serif'}}>{this.props.feed[this.props.currentIndex].description}</div>
                     </div>
                       <div style={styles.buttonDiv}>
-                        <button style={{color: 'inherit', background: 'transparent', border: '0'}}>
-                          <span style={{boxSizing: 'border-box'}}>
-                            Hide photo list
-                            <i class="fas fa-sort-down"></i>
+                        <button style={{color: 'inherit', background: 'transparent', border: '0'}} onClick={this.props.setHovered}>
+                          <span style={{boxSizing: 'border-box', fontFamily: 'Roboto, sans-serif'}}>
+                            {this.props.hovered? 'Hide photo list' : 'Show photo list'}
+                            <i className="fas fa-sort-down"></i>
                           </span>
                         </button>
                       </div>
                   </div>
                 </div>
+                <div style={{display: this.props.hovered ? 'block': 'none'}}>
                 <div style={styles.pictureHolder}>
                   <div style={styles.underPics}>
                     <ul style={styles.listStart}>
@@ -129,6 +130,7 @@ export default class PhotoGallery extends React.Component {
                      })}
                     </ul>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
