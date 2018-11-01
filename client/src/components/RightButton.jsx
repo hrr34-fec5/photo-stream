@@ -2,12 +2,14 @@ import React from 'react';
 
 const RightButton = (props) => {
   const style = {
-    display: 'inline-block',
+    position: 'absolute',
+    right: '20px',
     color: 'white',
+    top: '200px'
   }
   return (
     <div className="nextArrow" onClick={props.goToNextSlide} style={style}>
-      <i className="fa fa-angle-right fa-2x" aria-hidden="true"></i>    
+      <i className="fa fa-angle-right fa-8x" aria-hidden="true"></i>    
     </div>
   );
 };

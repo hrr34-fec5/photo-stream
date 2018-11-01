@@ -5,69 +5,122 @@ const faker = require('faker');
 
 //remember that you made changes to source code for GridList for this
 const styles = {
-  root: {
+  cols: {
+    maxHeight: '400px',
     display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    height: '600px'
+    flex: '50%',
+    padding: '0',
+    margin: '0',
+    overflow: 'hidden',
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  gridList: {
+  cols1:{
+    maxHeight: '400px',
+    flex: '50%',
+    padding: '0',
+    margin: '0',
+    overflow: 'hidden',
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  row: {
     display: 'flex',
-    flexWrap: 'nowrap',
-    overflowX: 'auto',
-    height: '400px'
+    padding:'0',
+    margin: '0',
+    border: '0'
   },
-  smallGrid:{
-    display: 'flex',
-    flexWrap: 'wrap',
-    overflowX: 'auto',
-    
-  },
-  titleStyle: {
-    color: 'rgb(0, 188, 212)',
-    height: '250px'
-  },
-  divs: {
-    height: '400px',
-    width: '50%',
+  smallPics: {
+    varticalAlign: 'top',
     display: 'inline-block',
+    width: '50%',
+    maxHeight: '50%',
+    margin: '0',
+    padding: '0',
+    float: 'left',
+    border: '0',
+    backgroundSize: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  pics: {
+    maxHeight: '100%',
+    maxWidth: '100%',
+    display: 'flex',
+    objectFit: 'scale-down'
+  },
+  btnDiv: {
+    width: '210px',
+    height: '36px',
+    position: 'absolute',
+    top: '20px',
+    right: '20px'
+  },
+  saveBtn: {
+    width: '93px',
+    height: '100%',
+    borderRadius: '4px'
+  },
+  shareBtn: {
+    width: '93px',
+    height: '100%',
+    left: '0px',
+    marginRight: '24px',
+    borderRadius: '4px'
+  },
+  viewBtn: {
+    height: '36px',
+    width: '93px',
+    right: '24px',
+    top: '341px',
+    position: 'absolute',
+    borderRadius: '4px'
+  },
+  viewCont: {
+    postion: 'absolute',
+    bottom: '24px',
+    left: '24px'
+  },
+  fbIcon: {
+    marginLeft: '5px',
+    marginRight: '15px',
+    display: 'inline-block',
+    fill: 'rgb(72, 72, 72)'
   }
 };
 
-const tilesData = [
-  {
-    img: faker.image.imageUrl(),
-    title: 'Breakfast',
-    author: 'jill111',
-  },
-  {
-    img: faker.image.imageUrl(),
-    title: 'Tasty burger',
-    author: 'pashminu',
-  },
-  {
-    img: faker.image.imageUrl(),
-    title: 'Camera',
-    author: 'Danson67',
-  },
-  {
-    img: faker.image.imageUrl(),
-    title: 'Morning',
-    author: 'fancycrave1',
-  },
-  {
-    img: faker.image.imageUrl(),
-    title: 'Honey',
-    author: 'fancycravel',
-  },
-];
-const newGrids = tilesData.slice(1);
 const PhotoHolder = (props) => {
-  console.log(tilesData[0].img, 'check if faker is working');
+  const first = props.feed[0];
+  const newGrids = props.feed.slice(1, 5);
   return (
-    <div>
-      <div style={styles.div}><img src={tilesData[0].img}/></div>
-      <div style={styles.div}><img src={tilesData[1].img}/></div>
+    <div style={{left: '0', top: '0', right: '0'}}>
+    <div style={styles.btnDiv}>
+      <button style={styles.shareBtn} onClick={props.showSharePop}>
+        <i className="far fa-paper-plane" style={styles.fbIcon}></i>
+        Share
+      </button>
+      <button style={styles.saveBtn} onClick={props.showSavePop}>
+        <i className="far fa-heart" style={styles.fbIcon}></i>
+        Save
+      </button>
+    </div>
+    <div className="row" style={styles.row}>
+      <div style={styles.cols} className="col"><img style={{objecFit: "scale-down"}} src={first.imageUrl} onClick={props.onClick}/></div>
+      <div style={styles.cols1} className="col">
+        {newGrids.map(pic => {
+          return (
+            <div className="smallPic" style={styles.smallPics}>
+              <img styles={styles.pics} src={pic.imageUrl} onClick={props.onClick}/>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+      <button style={styles.viewBtn}><span onClick={props.onClick}>View Photos</span></button>
     </div>
   );
 }

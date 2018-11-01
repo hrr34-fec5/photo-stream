@@ -2,9 +2,26 @@ const db = require('./index.js');
 const PicStream = require('./photoStream.js');
 const faker = require('faker');
 
+var images = [
+    'http://dummyimage.com/700x700.png/cc0000/ffffff',
+    'http://dummyimage.com/700x700.jpg/5fa2dd/ffffff',
+    'http://dummyimage.com/700x700.bmp/dddddd/000000',
+    'http://dummyimage.com/700x700.bmp/dddddd/000000',
+    'http://dummyimage.com/700x700.bmp/cc0000/ffffff',
+    'http://dummyimage.com/700x700.bmp/dddddd/000000',
+    'http://dummyimage.com/700x700.jpg/5fa2dd/ffffff',
+    'http://dummyimage.com/700x700.png/ff4444/ffffff',
+    'http://dummyimage.com/700x700.bmp/5fa2dd/ffffff',
+    'http://dummyimage.com/700x700.bmp/5fa2dd/ffffff'
+];
+
+var random = function(){
+  return images[Math.floor(Math.random() * images.length)];
+}
+
 let generateRandomPics = () => {
    return {
-      imageUrl: 'https://loremflickr.com/320/240?random=3',
+      imageUrl: random(),
       description: faker.lorem.sentence(),
     };
 };
