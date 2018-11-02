@@ -19,16 +19,30 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/pictures', (req, res) => {
   PicStream.findPics((pics) => {
-    console.log('pics in get request', pics)
+    // console.log('pics in get request', pics)
+    pics = pics.slice(0,1);
     res.json(pics);
     res.end();
   })
 });
 app.get('/pictures:listingId', (req, res) => {
-  Picstream.findPicsById(pics => {
+  let urlArr = req.url.split(':')[1];
+  console.log('urlarr',urlArr)
+  // urlArr === 'listingId' ? '5bdc9a89239c3205677493a5' : urlArr;
+  if(urlArr === 'listingId') {
+    urlArr = '5bdc9a89239c3205677493a2'
+  } else {
+    urlArr = urlArr;
+  }
+  PicStream.findPicsById(urlArr, (pics) => {
     console.log('pics in find by id func', pics);
     res.json(pics);
   })
 })
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
+
+//going to use this later for testing with enzyme and jest
+//you can't just use the in line HTTP requests
+// aka componentDidMount(){axio.get...blah blah blah...}
+module.exports.app = app;

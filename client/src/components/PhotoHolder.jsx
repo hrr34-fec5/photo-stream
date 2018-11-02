@@ -109,12 +109,12 @@ const PhotoHolder = (props) => {
       </button>
     </div>
     <div className="row" style={styles.row}>
-      <div style={styles.cols} className="col"><img style={{objecFit: "scale-down"}} src={first.imageUrl} onClick={props.onClick}/></div>
+      <div style={styles.cols} className="col"><img style={{objecFit: "scale-down"}} src={first} onClick={props.onClick}/></div>
       <div style={styles.cols1} className="col">
         {newGrids.map(pic => {
           return (
             <div className="smallPic" style={styles.smallPics}>
-              <img styles={styles.pics} src={pic.imageUrl} onClick={props.onClick}/>
+              <img styles={styles.pics} src={pic} onClick={props.onClick}/>
             </div>
           )
         })}
@@ -126,40 +126,3 @@ const PhotoHolder = (props) => {
 }
 
 export default PhotoHolder;
-/**
- const PhotoHolder = (props) => {
-  return (<div style={styles.root}>
-    <GridList style={styles.gridList} cols={2.2}>
-      {tilesData.map((tile) => {
-        return (
-          <GridTile
-            key={tile.img}
-            title={tile.title}
-            onClick={props.onClick}
-          >
-            <img src={tile.img}/>
-          </GridTile>
-        )
-      })}
-    </GridList>
-  </div>
-  );
-}
-
-
-  const PhotoHolder = (props) => {
-  return (<div style={styles.root}>
-    <GridList style={styles.gridList} cols={2.2}>
-      <GridTile style={styles.gridList} key={tilesData[0].img} onClick={props.onClick}><img src={tilesData[0].img}/></GridTile>
-      <div style={styles.gridList}>
-        {newGrids.map((tile) => {
-          return(
-            <div key={tile.img} onClick={props.onClick}><img src={tile.img} style={styles.smallGrid}/></div>
-          )
-        })}
-      </div>
-    </GridList>
-  </div>
-  );
-}
- */

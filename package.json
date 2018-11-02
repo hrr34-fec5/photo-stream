@@ -11,7 +11,8 @@
   "scripts": {
     "web": "nodemon server/index.js",
     "watch": "webpack -d --watch",
-    "db-init": "node server/db/seed.js"
+    "db-init": "node server/db/seed.js",
+    "test": "TZ=America/New_York BASE_URL=http://localhost:8080 jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -28,6 +29,7 @@
     "eslint-plugin-react": "^7.11.1",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
+    "supertest": "^3.3.0",
     "webpack": "^4.23.0",
     "webpack-cli": "^3.1.2"
   },
@@ -35,6 +37,7 @@
     "@babel/polyfill": "^7.0.0",
     "@material-ui/core": "^3.3.2",
     "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
@@ -47,6 +50,6 @@
     "sinon": "^7.1.1"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "src/setupTests.js"
+    "setupTestFrameworkScriptFile": "./client/src/setupTests.js"
   }
 }

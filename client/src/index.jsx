@@ -16,6 +16,7 @@ class App extends React.Component{
     super(props);
     this.state = {
       feed: [],
+      descFeed: [],
       currentIndex: 0,
       view: 'home',
       hovered: false
@@ -23,9 +24,11 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    $.get('/pictures', res => {
+    $.get('/pictures:listingId', res => {
+      console.log(res, 'res after get')
       this.setState({
-        feed: res
+        feed: res.imageUrl,
+        descFeed: res.description
       }, () => {console.log(this.state.feed, 'feed state on load')})
     })
   }
@@ -80,6 +83,7 @@ class App extends React.Component{
     })
   }
   setHovered(){
+    console.log('hover state', this.state.hovered)
     this.setState({
       hovered: !this.state.hovered
     });
@@ -87,13 +91,20 @@ class App extends React.Component{
 
   renderView(){
     if(this.state.view === 'home') {
-      let homeDisplay = this.state.feed;
+      let homeDisplay = this.state.feed.slice(0,5);
       if(homeDisplay.length < 1) {
         return <div>Loading. Please wait.</div>
       }
       return (
         <div>
-          <PhotoHolder onClick={this.changeView.bind(this)} feed={this.state.feed} view={this.state.view} showSharePop={this.showSharePop.bind(this)} showSavePop={this.showSavePop.bind(this)}/>
+          <PhotoHolder 
+          onClick={this.changeView.bind(this)} 
+          feed={this.state.feed} 
+          view={this.state.view} 
+          descFeed={this.state.descFeed}
+          showSharePop={this.showSharePop.bind(this)} 
+          showSavePop={this.showSavePop.bind(this)}
+          />
         </div>
       )
       /*
@@ -126,7 +137,13 @@ class App extends React.Component{
         <div className="gallery" style={galStyles}>  
           <ReturnHome returnHome={this.returnHome.bind(this)}/>
           <LeftButton goToPrevSlide={this.goToPrevSlide.bind(this)}/>
-          <PhotoGallery feed={this.state.feed} currentIndex={this.state.currentIndex} setHovered={this.setHovered.bind(this)} hovered={this.state.hovered}/>
+          <PhotoGallery 
+          feed={this.state.feed} 
+          descFeed={this.state.descFeed}
+          currentIndex={this.state.currentIndex} 
+          setHovered={this.setHovered.bind(this)} 
+          hovered={this.state.hovered}
+          />
           <RightButton goToNextSlide={this.goToNextSlide.bind(this)}/>
         </div>
       );
