@@ -110,7 +110,7 @@ const PhotoHolder = (props) => {
     </div>
     <div className="row" style={styles.row}>
       <div style={styles.cols} className="col"><img style={{objecFit: "scale-down"}} src={first} onClick={props.onClick}/></div>
-      <div style={styles.cols1} className="col">
+      <div style={styles.cols1} className="col-holder">
         {newGrids.map(pic => {
           return (
             <div className="smallPic" style={styles.smallPics}>
