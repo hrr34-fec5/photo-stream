@@ -51,7 +51,7 @@ const styles = {
   buttonDiv: {
     textAlign: 'right',
     verticalAlign: 'middle',
-    display: 'table-cell'
+    display: 'table-cell',
   },
   downArrow: {
     fontStyle: 'normal',
@@ -65,7 +65,8 @@ const styles = {
   },
   underPics: {
     position: 'absolute',
-    width: '11110px'
+    width: '11110px',
+    backgroundColor: 'rgb(42,43,45)'
   },
   listStart: {
     position: 'absolute',
@@ -73,15 +74,19 @@ const styles = {
     left: '0px',
     transition: 'transform 0.3s ease-out 0s',
     margin: '0px',
-    padding: '0px'
+    padding: '0px',
+    // backgroundColor: 'transparent'
+    backgroundColor: 'rgb(42,43,45)'
   },
   picList: {
     float: 'left',
-    backgroundColor: 'rgb(0,0,0)'
+    backgroundColor: 'rgb(42,43,45)'
+    // backgroundColor: 'transparent'
   },
   bottomPics: {
     width: '100px',
-    height: '67px'
+    height: '67px',
+    backgroundColor: 'rgb(42,43,45)'
   }
 };
 export default class PhotoGallery extends React.Component {
@@ -101,7 +106,7 @@ export default class PhotoGallery extends React.Component {
       return (
         <div className="slide" style={{display: 'flex', justifyContent: 'center', boxSizing: 'border-box', height: '100%'}}>
           <div style={styles.imgContainer}>
-            <img src={this.props.feed[this.props.currentIndex].imageUrl}/>
+            <img src={this.props.feed[this.props.currentIndex]}/>
           </div>
           <figcaption style={styles.bottomText}>
             <div style={styles.underFig}>
@@ -109,7 +114,7 @@ export default class PhotoGallery extends React.Component {
                 <div style={styles.underTransition}>
                   <div style={styles.tableDiv}>
                     <div style={styles.textDiv}>
-                      <div style={{boxSizing: 'border-box', fontFamily: 'Roboto, sans-serif'}}>{this.props.feed[this.props.currentIndex].description}</div>
+                      <div style={{boxSizing: 'border-box', fontFamily: 'Roboto, sans-serif'}}>{this.props.descFeed[this.props.currentIndex]}</div>
                     </div>
                       <div style={styles.buttonDiv}>
                         <button style={{color: 'inherit', background: 'transparent', border: '0'}} onClick={this.props.setHovered}>
@@ -126,7 +131,8 @@ export default class PhotoGallery extends React.Component {
                   <div style={styles.underPics}>
                     <ul style={styles.listStart}>
                      {this.props.feed.map(pic => {
-                       return <button><img src={pic.imageUrl} style={styles.bottomPics}/></button>
+                       console.log('pic in bottom gallery', pic)
+                       return <button style={{backgroundColor: 'rgb(42,43,45)', border:'none'}}><img src={pic} style={styles.bottomPics}/></button>
                      })}
                     </ul>
                   </div>
