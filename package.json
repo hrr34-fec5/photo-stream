@@ -12,7 +12,8 @@
     "web": "nodemon server/index.js",
     "watch": "webpack -d --watch",
     "db-init": "node server/db/seed.js",
-    "test": "TZ=America/New_York BASE_URL=http://localhost:8080 jest"
+    "test": "TZ=America/New_York BASE_URL=http://localhost:8080 jest",
+    "server-test": "jest server/server.test.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -20,6 +21,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "cors": "^2.8.5",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.7.0",
@@ -29,6 +31,8 @@
     "eslint-plugin-react": "^7.11.1",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
+    "mongoose": "^5.3.10",
+    "mongoose-auto-increment": "^5.0.1",
     "supertest": "^3.3.0",
     "webpack": "^4.23.0",
     "webpack-cli": "^3.1.2"
@@ -41,7 +45,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
-    "mongoose": "^5.3.6",
     "path": "^0.12.7",
     "prop-types": "^15.6.2",
     "ramda": "^0.25.0",

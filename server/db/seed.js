@@ -29,6 +29,7 @@ var randomPicArray = function(){
   return result;
 }
 
+var idCount = 0;
 
 let generateRandomPics = () => {
   var picArray = randomPicArray();
@@ -36,9 +37,11 @@ let generateRandomPics = () => {
   for(var i = 0; i < picArray.length; i++) {
     descriptionArr.push(faker.lorem.sentence())
   }
+  idCount += 1;
    return {
       imageUrl: picArray,
       description: descriptionArr,
+      listingId: idCount
     };
 };
 
