@@ -4,10 +4,11 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrr34-fec5/photo-stream2
+  - https://github.com/hrr34-fec5/grounded-n-grits-calendar-component
+  - https://github.com/hrr34-fec5/reviews-service
+  - https://github.com/hrr34-fec5/house-description-service
+
 
 ## Table of Contents
 
@@ -17,7 +18,8 @@
 
 ## Usage
 
-> Some usage instructions
+1. Ensure that Mongo is running actively (e.g., on a Mac, open a terminal and run `$ mongod`).
+2. Start the server with script: `npm run web`
 
 ## Requirements
 
@@ -37,3 +39,9 @@ npm install -g webpack
 npm install
 ```
 
+### Seeding Database
+For testing and development purposes, it may be useful to seed the database.
+
+A script ahs been included for this purpose.
+
+After installing dependencies and proceeding through the usage steps, run the following script: `npm run db:init`
