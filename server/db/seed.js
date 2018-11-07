@@ -46,7 +46,7 @@ let generateRandomPics = () => {
 };
 
 //change this to 100 for production
-const numPics = 5;
+const numPics = 100;
 const picArray = [];
 
 

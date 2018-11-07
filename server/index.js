@@ -9,19 +9,19 @@ const PicStream = require('./db/photoStream.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(`${__dirname}/../client/dist`));
-app.options('/*', function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-  res.set('Content-Type', 'application/json');
-  res.sendStatus(200);
-  // next();
-});
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
+// app.options('/*', function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+//   res.set('Content-Type', 'application/json');
+//   res.sendStatus(200);
+//   // next();
 // });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(express.static(__dirname + '/../client/dist'));
 
@@ -39,7 +39,7 @@ app.get('/listing/:id', (req, res) => {
   res.sendFile(file);
 });
 app.get('/listing/data/:id', (req, res) => {
-  console.log('req.params',req.params)
+  // console.log('req.params',req.params)
   let urlArr = req.url.split(':')[1];
   console.log('urlarr',urlArr)
   // urlArr === 'listingId' ? '5bdc9a89239c3205677493a5' : urlArr;
