@@ -42,6 +42,6 @@ npm install
 ### Seeding Database
 For testing and development purposes, it may be useful to seed the database.
 
-A script ahs been included for this purpose.
+A script has been included for this purpose.
 
-After installing dependencies and proceeding through the usage steps, run the following script: `npm run db:init`
+After installing dependencies and proceeding through the usage steps, run the following script: `npm run db-init`
