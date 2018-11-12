@@ -9,7 +9,7 @@ import RightButton from './components/RightButton.jsx';
 import ReturnHome from './components/ReturnHome.jsx';
 import SharePopup from './components/SharePopup.jsx';
 import SavePopup from './components/SavePopup.jsx';
-
+//http://3.16.138.183:8080
 const theme = createMuiTheme();
 export default class App extends React.Component{
   constructor(props){
@@ -24,14 +24,16 @@ export default class App extends React.Component{
   }
 
   componentDidMount(){
-    console.log('window href',window.location.href)
-    const url = window.location.href.split('/');
-    console.log(url);
-    const id = +url[url.length - 1];
-    console.log(typeof id, 'id type')
-    console.log('id on mount', id)
-    if(!isNaN(id) && id > 0 && id < 101){
-      $.get(`http://localhost:8080/listing/data/:${id}`, res => {
+    // console.log('window href',window.location.href)
+    // const url = window.location.href.split('/');
+    // console.log(url);
+    // const id = +url[url.length - 1];
+    // console.log(typeof id, 'id type')
+    // console.log('id on mount', id)
+    let id = '' + Math.floor(Math.random()*101);
+    if(id > 0 && id < 101){
+      //took out localhost for deployment. Replace if necessary
+      $.get(`http://photostream.us-east-2.elasticbeanstalk.com/listing/data/${id}`, res => {
         console.log(res, 'res after get')
         this.setState({
           feed: res.imageUrl,
@@ -39,7 +41,8 @@ export default class App extends React.Component{
         }, () => {console.log(this.state.feed, 'feed state on load')})
       })
     } else {
-      $.get('/listing', res => {
+      console.log('made it to else block of mount');
+      $.get(`/listing/:id`, res => {
         console.log('res in else block of mount', res.imageUrl);
         this.setState({
           feed: res.imageUrl,

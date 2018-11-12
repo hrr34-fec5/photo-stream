@@ -4,15 +4,15 @@
   "description": "Photo-stream for capstone project",
   "author": "me",
   "license": "MIT",
-  "main": "index.js",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "web": "nodemon server/index.js",
+    "start": "node server/index.js",
     "watch": "webpack -d --watch",
+    "build": "webpack --mode=production",
     "db-init": "node server/db/seed.js",
-    "test": "TZ=America/New_York BASE_URL=http://localhost:8080 jest",
+    "test": "TZ=America/New_York BASE_URL=http://localhost:8081 jest",
     "server-test": "jest server/server.test.js"
   },
   "devDependencies": {
@@ -43,8 +43,10 @@
     "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "nodemon": "^1.18.6",
     "path": "^0.12.7",
     "prop-types": "^15.6.2",
     "ramda": "^0.25.0",

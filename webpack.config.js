@@ -15,17 +15,21 @@ module.exports = {
         include: SRC_DIR,
         loader: 'babel-loader',
         exclude: /node_modules/,
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-env']
+        }
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    modules: [path.resolve(__dirname, '/client/src'), 'node_modules']
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public/'), 
-    port: 3030, 
-    publicPath: 'http://localhost:8081/dist/', 
-    hotOnly: true,
   }
+  // ,
+  // resolve: {
+  //   extensions: ['.js', '.jsx'],
+  //   modules: [path.resolve(__dirname, '/client/src'), 'node_modules']
+  // },
+  // devServer: {
+  //   contentBase: path.join(__dirname, 'public/'), 
+  //   port: 3030, 
+  //   publicPath: 'http://localhost:8081/dist/', 
+  //   hotOnly: true,
+  // }
 };
