@@ -96,14 +96,7 @@ class App extends React.Component{
           <PhotoHolder onClick={this.changeView.bind(this)} feed={this.state.feed} view={this.state.view} showSharePop={this.showSharePop.bind(this)} showSavePop={this.showSavePop.bind(this)}/>
         </div>
       )
-      /*
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[0].imageUrl}/></div>
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[1].imageUrl}/></div>
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[2].imageUrl}/></div>
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[3].imageUrl}/></div>
-          <div onClick={this.changeView.bind(this)}><img src={homeDisplay[4].imageUrl}/></div>      
-      */
-      // return <h1 onClick={this.changeView.bind(this)}>You're on the home page</h1>
+      
     } else if (this.state.view === 'share') {
       return (
         <div>
